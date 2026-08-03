@@ -1,0 +1,476 @@
+/* ==========================
+RESET
+==========================*/
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    margin:0;
+
+    width:100%;
+
+    height:100vh;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:
+    radial-gradient(circle at top,
+    #4c1d95 0%,
+    #180730 45%,
+    #020202 100%);
+
+}
+
+/* Background */
+
+/* .glow{
+position:fixed;
+width:650px;
+height:650px;
+top:-250px;
+left:50%;
+transform:translateX(-50%);
+background:#7c3aed;
+border-radius:50%;
+filter:blur(170px);
+opacity:.28;
+animation:glowPulse 5s ease-in-out infinite;
+z-index:-2;
+} */
+
+@keyframes glowPulse{
+0%{opacity:.18;transform:translateX(-50%) scale(1);}
+50%{opacity:.35;transform:translateX(-50%) scale(1.1);}
+100%{opacity:.18;transform:translateX(-50%) scale(1);}
+}
+
+/*.stars{
+position:fixed;
+inset:0;
+background-image:radial-gradient(white 1px,transparent 1px);
+background-size:60px 60px;
+opacity:.18;
+animation:moveStars 70s linear infinite,twinkle 4s ease-in-out infinite;
+z-index:-1;
+} */
+@keyframes moveStars{
+from{background-position:0 0;}
+to{background-position:0 1000px;}
+}
+
+@keyframes twinkle{
+0%,100%{opacity:.12;}
+50%{opacity:.25;}
+}
+
+/* Scenes */
+
+.scene{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.7s;
+
+}
+
+.scene.active{
+opacity:1;
+pointer-events:auto;
+z-index:1;
+}
+
+/* Card */
+
+.card{
+width:520px;
+padding:45px;
+border-radius:24px;
+text-align:center;
+background:rgba(20,20,20,.78);
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 0 35px rgba(124,58,237,.35);
+animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+}
+
+.small-text{
+color:#c8c8c8;
+margin-bottom:18px;
+font-size:15px;
+}
+
+h1{
+color:#fff;
+font-size:34px;
+line-height:1.4;
+margin-bottom:35px;
+}
+
+h2{
+color:#fff;
+margin-top:25px;
+font-size:30px;
+}
+
+.name{
+color:#d8b4fe;
+text-shadow:0 0 12px #9333ea,0 0 25px #9333ea;
+animation:nameGlow 2s infinite alternate;
+}
+
+@keyframes nameGlow{
+from{text-shadow:0 0 10px #9333ea;}
+to{text-shadow:0 0 22px #d8b4fe;}
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+button{
+border:none;
+cursor:pointer;
+padding:14px 36px;
+border-radius:12px;
+font-size:17px;
+transition:.3s;
+}
+
+button:hover{
+transform:translateY(-4px) scale(1.04);
+}
+
+#yesBtn,#unlockBtn,#backBtn{
+background:#7c3aed;
+color:#fff;
+}
+
+#noBtn{
+background:#333;
+color:#fff;
+}
+
+input{
+width:100%;
+padding:15px;
+margin:20px 0;
+border:none;
+outline:none;
+border-radius:12px;
+background:#2d2d2d;
+color:#fff;
+font-size:16px;
+}
+
+input::placeholder{
+color:#888;
+}
+
+#passwordMessage{
+min-height:24px;
+margin-top:15px;
+color:#ffb5b5;
+}
+
+/* Loader */
+
+.loader{
+width:100%;
+height:12px;
+background:#333;
+border-radius:30px;
+overflow:hidden;
+margin-top:25px;
+}
+
+.loader-fill{
+width:0%;
+height:100%;
+background:linear-gradient(90deg,#7c3aed,#c77dff,#7c3aed);
+border-radius:30px;
+}
+
+.loading-cat,.cat{
+font-size:64px;
+animation:bounce 1s infinite alternate;
+}
+
+@keyframes bounce{
+from{transform:translateY(0);}
+to{transform:translateY(-10px);}
+}
+
+/* No scene */
+
+.no-card img{
+width:240px;
+max-width:100%;
+display:none;
+margin:auto;
+border-radius:18px;
+}
+
+#catNormal.show,
+#catPunch.show{
+display:block;
+animation:zoom .4s ease;
+}
+
+@keyframes zoom{
+from{transform:scale(.8);}
+to{transform:scale(1);}
+}
+
+.shake{
+animation:shake .45s;
+}
+
+@keyframes shake{
+0%{transform:translateX(0);}
+20%{transform:translateX(-8px);}
+40%{transform:translateX(8px);}
+60%{transform:translateX(-8px);}
+80%{transform:translateX(8px);}
+100%{transform:translateX(0);}
+}
+
+@media(max-width:600px){
+
+.card{
+width:92%;
+padding:30px;
+}
+
+h1{
+    font-size:30px;
+    margin-bottom:25px;
+}
+
+button{
+width:100%;
+}
+
+.buttons{
+flex-direction:column;
+}
+
+.no-card img{
+width:180px;
+}
+
+}
+
+/* ==========================
+PASSWORD KEYPAD
+========================== */
+
+.password-dots{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin:22px 0 22px;
+
+}
+
+.dot{
+
+    width:18px;
+
+    height:18px;
+
+    border:2px solid #b794f6;
+
+    border-radius:50%;
+
+    background:transparent;
+
+    transition:.25s;
+
+}
+
+.dot.filled{
+
+    background:#b794f6;
+
+    box-shadow:
+    0 0 10px rgba(183,148,246,.7);
+
+}
+
+/* Entire keypad in one premium box */
+
+.keypad{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,70px);
+
+    gap:16px;
+
+    justify-content:center;
+
+    width:max-content;
+
+    margin:10px auto 0;
+
+    padding:22px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(16px);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.30),
+        0 0 25px rgba(124,58,237,.15);
+
+}
+
+/* Individual numbers */
+
+.key{
+
+    width:54px;
+
+    height:54px;
+
+    padding:0;
+
+    border:none;
+
+    background:transparent;
+
+    color:#ffffff;
+
+    font-size:26px;
+
+    font-weight:600;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+/* Hover */
+
+.key:hover{
+
+    color:#d8b4fe;
+
+    background:rgba(124,58,237,.12);
+
+    transform:scale(1.12);
+
+}
+
+/* Click */
+
+.key:active{
+
+    transform:scale(.92);
+
+    background:rgba(124,58,237,.20);
+
+}
+
+/* Special buttons */
+
+#clearBtn{
+
+    color:#ffb3b3;
+
+}
+
+#enterBtn{
+
+    color:#90EE90;
+
+}
+
+#passwordMessage{
+
+    margin-top:18px;
+
+    min-height:24px;
+
+    font-size:15px;
+
+}
+
+/* ==========================
+PASSWORD SCENE CARD
+========================== */
+
+.password-card{
+
+    width:650px;
+
+    background:transparent;
+
+    border:none;
+
+    box-shadow:none;
+
+    backdrop-filter:none;
+
+    animation:float 5s ease-in-out infinite;
+
+}
+
+/* Loading sub text */
+
+#loadingSubText{
+
+    margin-top:16px;
+
+    color:#e8dcff;
+
+    font-size:16px;
+
+    font-weight:400;
+
+    text-align:center;
+
+    opacity:.9;
+
+}

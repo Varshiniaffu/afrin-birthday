@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Bloom</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/cake.css">
+<link rel="stylesheet" href="css/album.css">
+<link rel="stylesheet" href="css/flower.css">
+<link rel="stylesheet" href="css/finale.css">
+</head>
+<body>
+
+<div class="glow"></div>
+<div class="stars"></div>
+
+<section class="scene active" id="scene1">
+<div class="card intro-card">
+<p class="small-text" id="waitText">Wait...</p>
+<h1 id="question">Are you <span class="name">Afrin</span>?</h1>
+<div class="buttons">
+<button id="yesBtn">Yes 💜</button>
+<button id="noBtn">No </button>
+</div>
+</div>
+</section>
+
+<section class="scene" id="scene2">
+
+    <div class="card password-card">
+
+        <div class="cat">🐱</div>
+
+        <p class="small-text">Meow...</p>
+
+        <h1>
+            Only the real
+            <span class="name">Afrin</span>
+            <br>
+            knows the password.
+        </h1>
+
+        <!-- Password Dots -->
+        <div id="passwordDots" class="password-dots">
+
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+        </div>
+
+        <!-- Number Pad -->
+        <div class="keypad">
+
+            <button class="key" data-key="1">1</button>
+            <button class="key" data-key="2">2</button>
+            <button class="key" data-key="3">3</button>
+
+            <button class="key" data-key="4">4</button>
+            <button class="key" data-key="5">5</button>
+            <button class="key" data-key="6">6</button>
+
+            <button class="key" data-key="7">7</button>
+            <button class="key" data-key="8">8</button>
+            <button class="key" data-key="9">9</button>
+
+            <button class="key" id="clearBtn">⌫</button>
+            <button class="key" data-key="0">0</button>
+            <button class="key" id="enterBtn">✓</button>
+
+        </div>
+
+        <p id="passwordMessage"></p>
+
+    </div>
+
+</section>
+
+<section class="scene" id="scene3">
+<div class="card">
+<div class="cat loading-cat">🐈</div>
+<h1 id="loadingText">Verifying Identity...</h1>
+<div class="loader"><div class="loader-fill"></div></div>
+<p id="loadingSubText">Please wait...</p>
+</div>
+</section>
+
+<section class="scene" id="scene4">
+
+<div class="card no-card">
+
+<img src="assets/images/punch_cat1.jpeg"
+     id="catNormal"
+     alt="Cat">
+
+<img src="assets/images/punch_cat.jpeg"
+     id="catPunch"
+     alt="Punch Cat">
+
+<h2 id="noMessage">
+    Wait...
+</h2>
+
+<button id="backBtn">Oops! I clicked No</button>
+
+</div>
+
+</section>
+
+<!-- ===============================
+        SCENE 5 - CAKE
+================================ -->
+
+<section class="scene" id="scene5">
+
+    <div class="background">
+
+        <div class="sparkles">
+
+<span></span><span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span><span></span>
+
+<span></span><span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span><span></span>
+
+<span></span><span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span><span></span>
+
+<span></span><span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span><span></span>
+
+<div class="heart h1">♡</div>
+<div class="heart h2">♡</div>
+<div class="heart h3">♡</div>
+<div class="heart h4">♡</div>
+<div class="heart h5">♡</div>
+<div class="heart h6">♡</div>
+<div class="heart h7">♡</div>
+<div class="heart h8">♡</div>
+
+</div>
+
+    </div>
+
+    <div class="cake-scene">
+
+        <div class="cake-container">
+            <div class="portal"></div>
+
+            <img
+                src="assets/images/cake.png"
+                id="cake"
+                class="cake"
+                alt="Birthday Cake">
+
+        </div>
+
+        <h1 id="wishText">
+            Make a wish...
+        </h1>
+
+        <button id="blowBtn">
+            🕯 Blow the Candle
+        </button>
+
+    </div>
+
+</section>
+
+<section class="scene" id="flowerScene">
+
+    <div class="flower-container">
+
+        <h1 id="flowerTitle">
+            So I picked every flower
+with a wish just for you... 💐
+        </h1>
+
+        <div class="bouquet-wrapper">
+
+            <img
+                src="assets/images/bouquet.png"
+                id="bouquet"
+                alt="Bouquet">
+
+        </div>
+
+        <div class="flower-card" id="flowerCard">
+
+            <div id="flowerEmoji"></div>
+
+            <div id="flowerWish" class="flowerWish"></div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===============================
+        MEMORY INTRO
+================================ -->
+
+<section class="scene" id="memoryIntroScene">
+    <div class="memory-intro-card">
+        <p>Now let's relive some</p>
+        <h1>beautiful memories</h1>
+        <span>📸</span>
+    </div>
+</section>
+
+<!-- ===============================
+        MEMORY ALBUM
+================================ -->
+
+<section class="scene" id="albumScene">
+
+    <!-- Background -->
+    <div class="album-bg"></div>
+
+    <!-- Background Memories -->
+    <div
+    class="memory-wall"
+    id="memoryWall">
+</div>
+
+    <!-- Hero Memory -->
+
+   <div class="hero-memory">
+
+    <div id="sceneContainer"></div>
+
+    <div id="sceneText" class="hero-text"></div>
+
+</div>
+
+</section>
+
+<!-- The closing moment continues from the final birthday wish. -->
+<section class="scene" id="finaleScene" aria-live="polite">
+    <div class="finale-intro" id="finaleIntro">
+        <p>Before this little surprise ends...</p>
+        <p>There's one last thing I wanted to tell you...</p>
+    </div>
+
+    <main class="final-message" id="finalMessage" aria-label="A birthday message">
+        <div class="message-content" id="letterContent"></div>
+        <button class="finish-button" id="finishButton" type="button">The End <span aria-hidden="true">🤍</span></button>
+    </main>
+
+    <div class="final-credit" id="finalCredit">
+        <p>Made with <span>❤️</span></p>
+        <p>Especially for Afrin</p>
+    </div>
+</section>
+
+    <script src="script.js"></script>
+<script src="js/cake.js"></script>
+<script src="js/flower.js"></script>
+<script src="js/finale.js"></script>
+
+</body>
+
+</html>

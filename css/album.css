@@ -1,0 +1,352 @@
+/* =====================================
+   ALBUM SCENE
+===================================== */
+
+#albumScene{
+
+    width:100%;
+    height:100vh;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at center,
+    #161021 0%,
+    #090510 45%,
+    #020103 100%);
+
+}
+
+
+/* =====================================
+   BACKGROUND GLOW
+===================================== */
+
+.album-bg{
+
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle,
+    rgba(138,95,255,.08),
+    transparent 65%);
+
+}
+
+
+/* =====================================
+   MEMORY WALL
+===================================== */
+
+.memory-wall{
+
+    position:absolute;
+    inset:0;
+
+    overflow:hidden;
+
+}
+
+
+/* =====================================
+   BACKGROUND PHOTOS
+===================================== */
+
+.bg-photo{
+
+    position:absolute;
+
+    width:140px;
+    height:auto;
+
+    border-radius:16px;
+
+    object-fit:cover;
+
+    opacity:.22;
+
+    filter:
+    grayscale(100%)
+    brightness(.85);
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.35);
+
+    animation:
+    memoryDrift 12s ease-in-out infinite;
+
+}
+
+
+/* =====================================
+   HERO
+===================================== */
+
+.hero-memory{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    z-index:100;
+
+}
+
+#sceneContainer{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:60px;
+
+}
+
+.heroPhoto{
+
+    width:360px;
+
+    max-width:85vw;
+
+    border-radius:22px;
+
+    box-shadow:
+    0 40px 100px rgba(0,0,0,.55);
+
+    animation:
+    heroAppear 1.5s ease,
+    heroFloat 6s ease-in-out infinite 1.5s;
+
+}
+
+.doubleLayout{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:70px;
+
+}
+
+
+/* =====================================
+   HERO PHOTO
+===================================== */
+
+#heroPhoto{
+
+    width:360px;
+
+    max-width:85vw;
+
+    border-radius:22px;
+
+    display:block;
+
+    box-shadow:
+
+    0 50px 120px rgba(0,0,0,.55),
+
+    0 0 60px rgba(255,255,255,.05);
+
+    animation:
+
+    heroAppear 1.8s ease forwards,
+
+    heroFloat 6s ease-in-out infinite 2s;
+
+}
+
+
+/* =====================================
+   HERO TEXT
+===================================== */
+
+.hero-text{
+
+    margin-top:28px;
+
+    color:white;
+
+    font-size:24px;
+
+    font-weight:400;
+
+    text-align:center;
+
+    line-height:1.6;
+
+    letter-spacing:.5px;
+
+    text-shadow:
+
+    0 0 20px rgba(255,255,255,.12);
+
+}
+
+
+/* =====================================
+   HERO APPEAR
+===================================== */
+
+@keyframes heroAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+        scale(.88);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+        scale(1);
+
+    }
+
+}
+
+
+/* =====================================
+   HERO FLOAT
+===================================== */
+
+@keyframes heroFloat{
+
+    0%,100%{
+
+        transform:
+
+        translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+
+        translateY(-6px);
+
+    }
+
+}
+
+
+/* =====================================
+   MEMORY DRIFT
+===================================== */
+
+@keyframes memoryDrift{
+
+    0%,100%{
+
+        transform:
+        translateY(0)
+        rotate(var(--rotation));
+
+    }
+
+    50%{
+
+        transform:
+        translateY(-6px)
+        rotate(var(--rotation));
+
+    }
+
+}
+
+#sceneContainer,
+.hero-text{
+
+    transition:
+        opacity .8s ease;
+
+    opacity:1;
+
+}
+
+.tripleLayout{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    gap:35px;
+
+    width:100%;
+
+}
+
+.tripleLayout .heroPhoto{
+
+    width:260px;
+
+}
+
+.tripleLayout .heroPhoto:nth-child(2){
+
+    margin-bottom:70px;
+
+}
+
+.quadLayout{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,auto);
+
+    gap:22px;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.quadLayout .heroPhoto{
+
+    width:210px;
+
+    border-radius:18px;
+
+}
+
+.birthday{
+
+    font-size:64px;
+
+    font-weight:600;
+
+    line-height:1.4;
+
+    color:#fff;
+
+    text-shadow:
+    0 0 30px rgba(255,255,255,.35);
+
+}
